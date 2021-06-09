@@ -1,14 +1,14 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Avatar, Button } from '@material-ui/core';
 
-import db from './firebase';
+import db from 'firebase';
 import './TweetBox.css';
 
 const TweetBox = () => {
   const [tweetMessage, setTweetMessage] = useState('');
   const [tweetImage, setTweetImage] = useState('');
 
-  const sendTweet = (e) => {
+  const sendTweet = (e: React.MouseEvent) => {
     e.preventDefault();
 
     db.collection('posts').add({
